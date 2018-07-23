@@ -5,7 +5,13 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmark = Bookmark.new
-    @bookmarks = Bookmark.includes(:category).map { |bookmark| bookmark.as_json.merge({category: bookmark.category.try(:name)}) } 
+    if params[:q].present?
+      query = Bookmark.where("title LIKE ? OR host LIKE ? OR url LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%")
+      @bookmarks = query.includes(:category).map { |bookmark| bookmark.as_json.merge({category: bookmark.category.try(:name)}) } 
+      render json: @bookmarks
+    else
+      @bookmarks = Bookmark.includes(:category).map { |bookmark| bookmark.as_json.merge({category: bookmark.category.try(:name)}) } 
+    end
   end
 
   def new

@@ -9,7 +9,12 @@
 .delete_button{
 	background-color: orange;
 }
-
+.search_button {
+	background-color: #AAbbcc;
+	padding:10px;
+	border-radius: 8px;
+	font-size:12px;
+}
 .delete_button, .edit_button{
 	padding:8px;
 	border-radius: 8px;
@@ -21,8 +26,16 @@
 	border-radius: 8px;
 	font-size:12px;
 }
-
-.input_field{
+.clear_button{
+	background-color: red;
+	padding:10px;
+	border-radius: 8px;
+	font-size:12px;	
+}
+.search_field{
+	width: 400px;
+}
+.input_field, .search_field{
 	padding:10px;
 	border-radius: 8px;
 	font-size:12px;

@@ -6,7 +6,8 @@ var Bookmarks = createReactClass({
 			title: 'Test Title',
 			host: 'Test host',
 			url: 'Test URL',
-			category_id: 1
+			category_id: 1,
+			search: ''
 		}
 	},
 
@@ -23,6 +24,22 @@ var Bookmarks = createReactClass({
 			   }.bind(this));
 	},
 
+	handleSearchSubmit: function(){
+		$.get("/bookmarks",
+				{q: this.state.search})
+			   .done(function(data){
+			   	 this.replaceSearchResultsBookmark(data);
+			   }.bind(this));
+	},
+
+	replaceSearchResultsBookmark: function(bookmarks){
+		this.setState({ bookmarks: bookmarks});
+	},
+
+	handleClear: function(){
+		window.location.reload();
+	},
+
 	addNewBookmark: function(bookmark){
 		this.setState({ bookmarks: this.state.bookmarks.concat(bookmark)});
 	},
@@ -37,7 +54,6 @@ var Bookmarks = createReactClass({
 	        'Content-Type': 'application/json'
 	      }
 	    }).then((response) => { 
-	    	console.log(response)
 	        this.updateBookmark(bookmark)
 	      })
 	},  
@@ -69,6 +85,10 @@ var Bookmarks = createReactClass({
 					categories={this.state.categories}
 					onUserInput={this.handleUserInput}
 					onFormSubmit={this.handleFormSubmit}/>
+				<BookmarkSearch input_search={this.state.search}
+					onUserInput={this.handleUserInput}
+					onSearchFormSubmit={this.handleSearchSubmit}
+					handleClear={this.handleClear} />
 				<BookmarksList bookmarks={this.state.bookmarks} handleUpdate={this.handleUpdate} handleDelete={this.handleDelete}/>
 			</div>
 		)
