@@ -3,9 +3,9 @@ var Bookmarks = createReactClass({
 		return {
 			bookmarks: this.props.bookmarks,
 			categories: this.props.categories,
-			title: 'Test Title',
-			host: 'Test host',
-			url: 'Test URL',
+			title: 'Title',
+			host: 'Host',
+			url: 'URL',
 			category_id: 1,
 			search: ''
 		}
