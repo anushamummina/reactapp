@@ -1,0 +1,22 @@
+<div class="container">
+<p>
+  <strong>Host:</strong>
+  <%= @bookmark.host %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @bookmark.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bookmark.title %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @bookmark.category.name %>
+</p>
+
+<%= link_to 'Back', bookmarks_path, class: "btn btn-primary btn-min" %>

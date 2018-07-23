@@ -1,0 +1,29 @@
+// Place all the styles related to the bookmarks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.edit_button{
+	background-color: lightblue;
+}
+.delete_button{
+	background-color: orange;
+}
+
+.delete_button, .edit_button{
+	padding:8px;
+	border-radius: 8px;
+	font-size:12px;
+}
+.submit_button{
+	background-color: lightgreen;
+	padding:10px;
+	border-radius: 8px;
+	font-size:12px;
+}
+
+.input_field{
+	padding:10px;
+	border-radius: 8px;
+	font-size:12px;
+}
