@@ -45,7 +45,7 @@ var Bookmarks = createReactClass({
 	},
 
 	handleUpdate(bookmark){
-		var new_bookmark = {title: bookmark.title, host: bookmark.host, url: bookmark.url, category_id: bookmark.category_id};
+		var new_bookmark = {title: bookmark.title, host: bookmark.host, url: bookmark.url, category_id: bookmark.category};
 	    fetch("/bookmarks/"+bookmark.id, 
 	    {
 	      method: 'PUT',
